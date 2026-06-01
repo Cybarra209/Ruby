@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #02040d;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+
+#gameCanvas {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(120, 80, 255, .16), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(255, 0, 80, .12), transparent 20%),
+    linear-gradient(#050816, #000);
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, #151c46, #02040d 65%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 22px;
+  z-index: 10;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 9vw, 58px);
+  text-shadow: 0 0 18px rgba(255, 75, 180, .85);
+}
+
+h2 {
+  font-size: clamp(24px, 7vw, 42px);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 19px;
+  color: #d7e2ff;
+}
+
+.smallText {
+  color: #aeb8dd;
+  font-size: 14px;
+}
+
+.shipGrid {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.shipChoice {
+  width: 110px;
+  min-height: 145px;
+  border: 3px solid rgba(255,255,255,.6);
+  border-radius: 18px;
+  background: rgba(255,255,255,.09);
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 10px;
+}
+
+.shipChoice img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.shipChoice:active {
+  transform: scale(.94);
+  background: rgba(255,255,255,.2);
+}
+
+.loadingBar {
+  width: min(420px, 82vw);
+  height: 24px;
+  background: rgba(255,255,255,.16);
+  border: 2px solid white;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+#loadingFill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff2b8a, #ffd34d);
+}
+
+.warning {
+  color: #ffd34d;
+}
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+#bossLabel {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+#bossHealthOuter {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(430px, 82vw);
+  height: 22px;
+  border: 2px solid white;
+  border-radius: 14px;
+  background: rgba(255,255,255,.15);
+  overflow: hidden;
+}
+
+#bossHealthInner {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff1744, #ff9100);
+}
+
+#healthBox {
+  position: absolute;
+  right: 14px;
+  bottom: 112px;
+  display: flex;
+  gap: 6px;
+}
+
+.playerHeart {
+  width: 20px;
+  height: 20px;
+  background: #32ff6a;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(50,255,106,.8);
+}
+
+#controls {
+  position: fixed;
+  bottom: 42px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 5;
+  pointer-events: auto;
+  padding: 0 18px;
+}
+
+.controlBtn {
+  width: 86px;
+  height: 66px;
+  border: 2px solid white;
+  border-radius: 18px;
+  color: white;
+  background: rgba(255,255,255,.14);
+  font-size: 30px;
+  font-weight: bold;
+  box-shadow: 0 0 14px rgba(255,255,255,.18);
+}
+
+.controlBtn.fire {
+  width: 96px;
+  height: 72px;
+  background: rgba(255, 80, 0, .28);
+}
+
+.controlBtn:active,
+.controlBtn.pressed {
+  transform: scale(.94);
+  background: rgba(255,255,255,.28);
+}
+
+.menuButton {
+  font-size: 22px;
+  padding: 14px 25px;
+  border-radius: 14px;
+  border: 2px solid white;
+  background: rgba(255,255,255,.12);
+  color: white;
+}
+
+#rotateNotice {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: #000;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  font-size: 26px;
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  #rotateNotice {
+    display: flex;
+  }
+}

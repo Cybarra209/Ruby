@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Ruby-the-Battle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="rotateNotice">Turn your phone upright to play.</div>
+
+  <section id="characterScreen" class="screen">
+    <h1>Ruby-the-Battle</h1>
+    <p class="subtitle">Choose your Space Invaders ship</p>
+    <div class="shipGrid">
+      <button class="shipChoice" data-ship="red">
+        <img src="assets/ship_red.png" alt="Red ship" />
+        <span>Red</span>
+      </button>
+      <button class="shipChoice" data-ship="blue">
+        <img src="assets/ship_blue.png" alt="Blue ship" />
+        <span>Blue</span>
+      </button>
+      <button class="shipChoice" data-ship="yellow">
+        <img src="assets/ship_yellow.png" alt="Yellow ship" />
+        <span>Yellow</span>
+      </button>
+    </div>
+    <p class="smallText">Move left and right. Hold fire to shoot.</p>
+  </section>
+
+  <section id="loadingScreen" class="screen hidden">
+    <h1 class="warning">⚠ WARNING ⚠</h1>
+    <h2>Entering the battle of Ruby</h2>
+    <div class="loadingBar"><div id="loadingFill"></div></div>
+  </section>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="bossLabel">Ruby</div>
+    <div id="bossHealthOuter"><div id="bossHealthInner"></div></div>
+    <div id="healthBox"></div>
+  </div>
+
+  <div id="controls" class="hidden">
+    <button id="leftBtn" class="controlBtn">◀</button>
+    <button id="fireBtn" class="controlBtn fire">🔥</button>
+    <button id="rightBtn" class="controlBtn">▶</button>
+  </div>
+
+  <section id="victoryScreen" class="screen hidden">
+    <h1>🎉 Congratulations for defeating Ruby! 🎉</h1>
+    <button id="playAgainVictory" class="menuButton">Play Again</button>
+  </section>
+
+  <section id="gameOverScreen" class="screen hidden">
+    <h1>Game Over</h1>
+    <p>Ruby got you. Try again!</p>
+    <button id="playAgainGameOver" class="menuButton">Try Again</button>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
