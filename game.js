@@ -1,0 +1,1 @@
+console.log('Ruby-the-Battle package loaded');
